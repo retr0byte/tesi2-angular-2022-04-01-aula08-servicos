@@ -1,0 +1,11 @@
+<h2>Temporizador:</h2>
+
+<h3>{{ timer.getCount() }}s</h3>
+
+<p>
+  <input type="text" [(ngModel)]="delay" />
+  <button (click)="timer.start(this.delay); this.delay = undefined">
+    Iniciar
+  </button>
+  <button (click)="timer.stop()">Parar</button>
+</p>
