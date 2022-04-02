@@ -1,25 +1,59 @@
 <h2>Disciplinas</h2>
-<div>
-  <input #nome type="text" placeholder="nome" />
-  <input #diaDaSemana type="text" placeholder="dia da semana" />
-  <input #horario type="text" placeholder="horario" />
+<div style="width:50%;">
+  <div class="form-floating" style="margin: 10px 0;">
+    <input
+      #nome
+      class="form-control"
+      id="nome"
+      type="text"
+      placeholder="nome"
+    />
+    <label for="nome">Nome: </label>
+  </div>
+
+  <div class="form-floating" style="margin: 10px 0;">
+    <input
+      #diaDaSemana
+      class="form-control"
+      id="diaDaSemana"
+      type="text"
+      placeholder="Dia da semana"
+    />
+    <label for="diaDaSemana">Dia da semana: </label>
+  </div>
+
+  <div class="form-floating" style="margin: 10px 0;">
+    <input
+      #horario
+      class="form-control"
+      id="horario"
+      type="text"
+      placeholder="horario"
+    />
+    <label for="horario">Horario</label>
+  </div>
 
   <button
+    style="margin-top:10px;"
+    class="btn btn-secondary"
     (click)="
       disciplinas.add({
         nome: nome.value,
         diaDaSemana: diaDaSemana.value,
         horario: horario.value
-      })
+      });
+      nome.value = '';
+      diaDaSemana.value = '';
+      horario.value = ''
     "
   >
-    +
+    Adicionar nova
   </button>
 </div>
 
 <br />
 
-<table border="1">
+<table class="table">
   <tr>
     <th>Nome</th>
     <th>Dia da semana</th>
@@ -31,6 +65,10 @@
     <td>{{ disciplina.nome }}</td>
     <td>{{ disciplina.diaDaSemana }}</td>
     <td>{{ disciplina.horario }}</td>
-    <td><button (click)="disciplinas.remove(i)">-</button></td>
+    <td>
+      <button class="btn btn-outline-danger" (click)="disciplinas.remove(i)">
+        -
+      </button>
+    </td>
   </tr>
 </table>

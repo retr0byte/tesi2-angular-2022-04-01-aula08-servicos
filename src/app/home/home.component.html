@@ -2,10 +2,20 @@
 
 <h3>{{ timer.getCount() }}s</h3>
 
-<p>
-  <input type="text" [(ngModel)]="delay" />
-  <button (click)="timer.start(this.delay); this.delay = undefined">
+<p class="form-floating">
+  <input
+    class="form-control"
+    id="delay"
+    type="text"
+    [(ngModel)]="delay"
+    placeholder="digite aqui o intervalo desejado... (em segundos)"
+  />
+  <label for="delay">Digite aqui o intervalo desejado... (em segundos)</label>
+  <button
+    class="btn btn-success"
+    (click)="timer.start(this.delay); this.delay = undefined"
+  >
     Iniciar
   </button>
-  <button (click)="timer.stop()">Parar</button>
+  <button class="btn btn-danger" (click)="timer.stop()">Parar</button>
 </p>
